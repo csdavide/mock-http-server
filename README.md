@@ -7,10 +7,10 @@ ant (min 1.6)  => generate dist/mockserver.jar
 ```
 ### Usage
 ```
-java -jar mockserver.jar <port> <body_response_xml_path>
+java -jar mockserver.jar <port> <path_response>
 ```  
 * port : listening port's server
-* body_response_xml_path = path of xml (body) response
+* path_responses = path of replies
 ### Example
 #### SOAP
 ##### Prepare
@@ -23,14 +23,14 @@ java -jar mockserver.jar <port> <body_response_xml_path>
  </soapenv:Body>
 </soapenv:Envelope>
 ```
-> <body_response_xml_path>/testResources.xml
+> <path_response>/testResources.xml
 ```xml
 <ns:testResourcesResponse xmlns:ns="http://my.response.namespace/">
  <return>true</return>
 </ns:testResourcesResponse>
 ```
 ##### Execute
-> java -jar mockserver.jar 9080 <body_response_xml_path>
+> java -jar mockserver.jar 9080 <path_response>
 
 > curl --data "@Request.xml" http://localhost:9080/service/soap
 ```xml
@@ -44,7 +44,7 @@ java -jar mockserver.jar <port> <body_response_xml_path>
 ```
 #### REST
 ##### Prepare
-> <body_response_xml_path>/testResources.json
+> <path_response>/testResources.json
 ```json
 {
   "testResourcesResponse": {
@@ -53,7 +53,7 @@ java -jar mockserver.jar <port> <body_response_xml_path>
 }
 ```
 ##### Execute
-> java -jar mockserver.jar 9080 <body_response_xml_path>
+> java -jar mockserver.jar 9080 <path_response>
 
 > curl http://localhost:9080/service/rest?method=testResources
 ```json
