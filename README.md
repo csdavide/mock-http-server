@@ -10,7 +10,7 @@ mvn clean package => target\mockserver-1.0.0-jar-with-dependencies.jar
 java -jar mockserver.jar <port> <path_response>
 ```  
 * port : listening port's server
-* path_responses = path of replies
+* path_response = path of replies
 ### Example
 #### SOAP
 ##### Prepare
