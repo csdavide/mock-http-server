@@ -3,7 +3,7 @@ A minimal java mock server for soap/rest test
 ## Getting Started
 ### Build
 ```
-ant (min 1.6)  => generate dist/mockserver.jar
+mvn clean package => target\server-1.0.0-jar-with-dependencies.jar
 ```
 ### Usage
 ```
