@@ -83,17 +83,14 @@ public class MockServer {
 					}
 				} else if (requestURI.indexOf("/service/rest") != -1) {
 					response.setContentType("application/json");
-					final String sname = request.getParameter("method");
-					if (sname != null) {
-						final String sdata = path + "/" + sname + ".xml";
+					final String fname = request.getParameter("method");
+					if (fname != null) {
+						final String sdata = path + "/" + fname + ".json";
 						final File file = new File(sdata);
 						if (file.exists()) {
 							final InputStream rd = new FileInputStream(sdata);
-							final String xml = IOUtils.toString(rd);
-							final String env = MessageFormat
-									.format(XML_ENVELOPE, xml);
-							data = new String(env);
-							response.write(data);
+							final String content = IOUtils.toString(rd);
+							response.write(content);
 							return;
 						}
 						response.write(makeFault("NoService " + sname));
