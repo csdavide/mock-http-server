@@ -7,7 +7,7 @@ mvn clean package => target\mockserver-1.0.0-jar-with-dependencies.jar
 ```
 ### Usage
 ```
-java -jar mockserver.jar <port> <path_response>
+java -jar mockserver.jar <port> <path_resources>
 ```  
 * port : listening port's server
 * path_response = path of replies
