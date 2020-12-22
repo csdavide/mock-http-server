@@ -84,10 +84,10 @@ public class MockServer {
 					}
 				} else if (requestURI.indexOf("/service/rest") != -1) {
 					response.setContentType("application/json");					
-					final String sname = request.getParameter("method");					
+					final String sname = request.getParameter("method");				
 					if (sname != null) {
-					        final String path = StringUtils.substringBetween(requestURI, "rest", sname);
-						final String sdata = baseDir + "/" + path + "/" + sname + ".json";
+					        final String path = StringUtils.substringAfter(requestURI, "rest");
+						final String sdata = baseDir + (StringUtils.isEmpty(path) ? "" : "/" + path) + "/" + sname + ".json";
 						final File file = new File(sdata);
 						if (file.exists()) {
 							final InputStream rd = new FileInputStream(sdata);
