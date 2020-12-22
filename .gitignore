@@ -1,0 +1,17 @@
+*~
+*#
+.#*
+\#*#
+.*.sw[a-z]
+*.un~
+
+.settings
+.project
+.classpath
+
+bin/*
+build/*
+repo/*
+target/*
+
+*.bat
