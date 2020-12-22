@@ -13,6 +13,7 @@ import javax.xml.xpath.XPathExpression;
 import javax.xml.xpath.XPathFactory;
 
 import org.apache.commons.io.IOUtils;
+import org.apache.commons.lang3.StringUtils;
 import org.w3c.dom.Document;
 import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
@@ -27,7 +28,7 @@ public class MockServer {
 	static final String XML_ENVELOPE = "<soap:Envelope xmlns:soap=\"http://schemas.xmlsoap.org/soap/envelope/\">\n<soap:Body>\n{0}\n</soap:Body>\n</soap:Envelope>";
 	static final String XML_FAULT = "<soap:Fault>\n<faultcode>soap:Server</faultcode>\n<faultstring>{0}</faultstring>\n</soap:Fault>";
 
-	private static String path;
+	private static String baseDir;
 
 	public static void main(final String[] args) {
 		try {
@@ -36,7 +37,7 @@ public class MockServer {
 				port = Integer.parseInt(args[0]);
 			} catch (final Exception e) {
 			}
-			path = args[1];
+			baseDir = args[1];
 			System.out.println(args[0] + " # " + args[1]);
 			final int numThreads = 100;
 			final javaxt.http.Server server = new javaxt.http.Server(port,
@@ -67,7 +68,7 @@ public class MockServer {
 						Node node = nodes.item(0);
 						String sname = node.getLocalName();
 						// String sname = IOUtils.toString(streamIn);
-						final String sdata = path + "/" + sname + ".xml";
+						final String sdata = baseDir + "/" + sname + ".xml";
 						final File file = new File(sdata);
 						if (file.exists()) {
 							final InputStream rd = new FileInputStream(sdata);
@@ -82,22 +83,22 @@ public class MockServer {
 						return;
 					}
 				} else if (requestURI.indexOf("/service/rest") != -1) {
-					response.setContentType("application/json");
-					final String sname = request.getParameter("method");
+					response.setContentType("application/json");					
+					final String sname = request.getParameter("method");					
 					if (sname != null) {
-						final String sdata = path + "/" + sname + ".json";
+					        final String path = StringUtils.substringBetween(requestURI, "rest", sname);
+						final String sdata = baseDir + "/" + path + "/" + sname + ".json";
 						final File file = new File(sdata);
 						if (file.exists()) {
 							final InputStream rd = new FileInputStream(sdata);
 							final String json = IOUtils.toString(rd);
-							// final String env = MessageFormat.format(XML_ENVELOPE, xml);
-							// data = new String(env);
 							response.write(json);
 							return;
-						}
-						response.write(makeFault("NoService " + sname));
-						return;
+						}						
 					}
+					
+					response.write("{status:404}");
+					return;
 				}
 				response.write(makeFault("InvalidRequest"));
 			} catch (final Exception e) {
