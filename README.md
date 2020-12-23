@@ -24,7 +24,7 @@ java -jar mockserver.jar <port> <path_resources>
  </soapenv:Body>
 </soapenv:Envelope>
 ```
-> <path_response>/testResources.xml
+> <path_resources>/testResources.xml
 ```xml
 <ns:testResourcesResponse xmlns:ns="http://my.response.namespace/">
  <return>true</return>
