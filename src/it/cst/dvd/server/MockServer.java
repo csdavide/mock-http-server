@@ -85,7 +85,7 @@ public class MockServer {
 				} else if (requestURI.indexOf("/service/rest") != -1) {
                     response.setContentType("application/json");
                     					
-				    final String path = StringUtils.substringAfter(requestURI, "rest");
+				    final String path = StringUtils.substringAfter(requestURI, "rest/");
 					final String sdata = baseDir + "/" + path + ".json";
 					final File file = new File(sdata);
                     
