@@ -64,3 +64,5 @@ java -jar mockserver.jar <port> <path_resources>
   }
 }
 ```
+#### PATHS
+![Paths](paths.png "Paths")
