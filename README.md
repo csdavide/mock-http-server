@@ -44,6 +44,8 @@ java -jar mockserver.jar <port> <path_resources>
 </soap:Envelope>
 ```
 #### REST
+##### PATHS
+![paths image](images/paths.png "paths")
 ##### Prepare
 > <path_resources>/testResources.json
 ```json
@@ -56,7 +58,7 @@ java -jar mockserver.jar <port> <path_resources>
 ##### Execute
 > java -jar mockserver.jar 9080 <path_resources>
 
-> curl http://localhost:9080/service/rest?method=testResources
+> curl http://localhost:9080/service/rest/testResources
 ```json
 {
   "testResourcesResponse": {
@@ -64,5 +66,4 @@ java -jar mockserver.jar <port> <path_resources>
   }
 }
 ```
-#### PATHS
-![paths image](images/paths.png "paths")
+
