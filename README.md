@@ -46,8 +46,8 @@ java -jar mockserver-1.0.0-jar-with-dependencies.jar <port> <path_resources>
 #### REST
 ##### PATHS
 ```shell
-File => /repository/test/v1/data.json<br/>
-Command => java -jar mockserver-1.0.0-jar-with-dependencies.jar 9080 /repository<br/>
+File => /repository/test/v1/data.json
+Command => java -jar mockserver-1.0.0-jar-with-dependencies.jar 9080 /repository
 URL => http://localhost:9080/service/rest/test/v1/data
 ```
 ##### Prepare
