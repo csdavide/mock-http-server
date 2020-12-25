@@ -1,5 +1,3 @@
-
-
 # mock-http-server
 A minimal java mock server for soap/rest test
 ## Getting Started
@@ -47,14 +45,11 @@ java -jar mockserver-1.0.0-jar-with-dependencies.jar <port> <path_resources>
 ```
 #### REST
 ##### PATHS
-![paths image](images/paths.png "paths")
 ```bash
 Command => java -jar mockserver-1.0.0-jar-with-dependencies.jar 9080 <span style="color:yellow">/repository</span>
-URL =>
+URL => http://localhost:9080/service/rest/test/v1/data
 File => <span style="color:yellow">/repository</span><span style="color:blue">/test/v1/data</span>.json
-
 ```
-
 ##### Prepare
 > <path_resources>/testResources.json
 ```json
