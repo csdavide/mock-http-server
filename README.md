@@ -1,4 +1,3 @@
-<h3 style="color:#ff0000">Danger</h3>
 # mock-http-server
 A minimal java mock server for soap/rest test
 ## Getting Started
