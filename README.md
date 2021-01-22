@@ -1,4 +1,6 @@
 # mock-http-server
+[![FOSSA Status](https://app.fossa.com/api/projects/git%2Bgithub.com%2Fcsdavide%2Fmock-http-server.svg?type=shield)](https://app.fossa.com/projects/git%2Bgithub.com%2Fcsdavide%2Fmock-http-server?ref=badge_shield)
+
 A minimal java mock server for soap/rest test
 ## Getting Started
 ### Build
@@ -71,3 +73,7 @@ URL => http://localhost:9080/service/rest/test/v1/data
   }
 }
 ```
+
+
+## License
+[![FOSSA Status](https://app.fossa.com/api/projects/git%2Bgithub.com%2Fcsdavide%2Fmock-http-server.svg?type=large)](https://app.fossa.com/projects/git%2Bgithub.com%2Fcsdavide%2Fmock-http-server?ref=badge_large)
